@@ -9,7 +9,7 @@ In addition to the lisp code, there is a small C program, now.c and Bourne shell
 script, ml_net.sh.  Compile now.c
 ```shell
 	clang now.c -o now
-	```
+```
 and put the compiled binary in your $PATH.  Make sure the shell script is
 executable by the user running StumpWM and also within the user's $PATH.  Have a
 look at the script to customize certain settings, such as the interval between
