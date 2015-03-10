@@ -32,7 +32,7 @@ Next, load the module with
 ```
 Finally create a mode-line format string with %I, %U, and %D in it, e.g.,
 ```lisp
-    (setf *screen-mode-line-format* "^[^8*%I^] %U^[^9*KiB/s^] %D^[^9*KiB/s^]"
+    (setf *screen-mode-line-format* "^[^8*%I^] %U^[^9*KiB/s^] %D^[^9*KiB/s^]")
 ```
 
 Q: So, why use a separate script?  Couldn't all the code be contained within the
