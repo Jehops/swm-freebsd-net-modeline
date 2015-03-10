@@ -2,8 +2,8 @@
 
 Put %I, %U, and %D in your StumpWM mode-line format string
 (*screen-mode-line-format*) to show the network interface associated with the
-default route and the current upload and download transfer rates for that
-interface.
+default route and the current upload and download transfer rates (in KiB/s) for
+that interface.
 
 In addition to the lisp code, there is a small C program, now.c and Bourne shell
 script, ml_net.sh.  Compile now.c
