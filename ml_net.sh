@@ -1,7 +1,6 @@
 #!/bin/sh
 
 dri=`/usr/bin/netstat -r4n | awk '/^default/ {print $4}'`
-dri_dn=`echo ${dri} | sed -E 's/([0-9]+)/.\1/'`
 [ -n "$dri" ] && t1=`now` && \
 	rate_info=`/usr/bin/netstat -I ${dri} -q 1 -b 2>/dev/null | awk 'NR%3==0 {print $8 " " $11}'`
 set -- ${rate_info}
@@ -16,7 +15,6 @@ stump_pid=`pgrep -a -n stumpwm`
 while kill -0 $stump_pid > /dev/null 2>&1; do
     dri=`/usr/bin/netstat -r4n 2>/dev/null | awk '/^default/ {print $4}'`
     if [ -n "${dri}" ]; then
-	dri_dn=`echo ${dri} | sed -E 's/([0-9]+)/.\1/'`
 	t2=`now` &&\
 	    rate_info=`/usr/bin/netstat -I ${dri} -q 1 -b 2>/dev/null | awk 'NR%3==0 {print $8 " " $11}'`
 	set -- ${rate_info}
