@@ -31,7 +31,7 @@ awk 'NR%3==0 {print $8 " " $11}'`
 	esac
 	case $dr in
 	    ''|*.*.*|*[!0-9.]*) printf "%8.2f\n" "-1.0";;
-	    *) printf "%8.2f\n" ${ur};;
+	    *) printf "%8.2f\n" ${dr};;
 	esac
 	t1=${t2}; d1=${d2}; u1=${u2}
     else
