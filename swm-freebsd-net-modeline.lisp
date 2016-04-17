@@ -37,16 +37,16 @@ all the work for the other formatters in this module."
   "Return download rate in KB/s for the interface associated with the default
 route."
   (declare (ignore ml))
-  ;;  (when (not (cl-ppcre::scan "^[^0-9]+" *down*))
-  ;;    (setf *down* -1))
+  ;; (when (or (not (boundp '*down*)) (cl-ppcre::scan "^[^0-9]+" *down*))
+  ;;   (setf *down* "0"))
   (format nil "~8,2f" *down*))
 
 (defun fmt-freebsd-net-modeline-up (ml)
   "Return upload rate in KB/s for the interface associated with the default
 route."
   (declare (ignore ml))
-  ;;  (when (not (cl-ppcre::scan "^[^0-9]+" *up*))
-  ;;    (setf *up* -1))
+  ;; (when (not (cl-ppcre::scan "^[^0-9]+" *up*))
+  ;;   (setf *up* -1))
   (format nil "~8,2f" *up*))
 
 ;; Install formatter
