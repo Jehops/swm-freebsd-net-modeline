@@ -22,16 +22,16 @@ while kill -0 "$stump_pid" > /dev/null 2>&1; do
 	set -- $rate_info
 	[ -n "$1" ] && d2=$1;
 	[ -n "$2" ] && u2=$2;
-	dr=$(echo "scale=2; ($d2 - $d1) / ($t2 - $t1) / 1024" | bc)
-	ur=$(echo "scale=2; ($u2 - $u1) / ($t2 - $t1) / 1024" | bc)
+	dr=$(bc -e "scale=2;($d2-$d1)/($t2-$t1)/1024" -e quit)
+	ur=$(bc -e "scale=2;($u2-$u1)/($t2-$t1)/1024" -e quit)
 	printf "%s\t" "$dri"
  	case "$ur" in
 	    ''|*.*.*|*[!0-9.]*) printf "%8.2f\t" "-1.0";;
-	    *) printf "%8.2f\t" "$ur";;
+	    *) printf "%8.1f\t" "$ur";;
 	esac
 	case "$dr" in
 	    ''|*.*.*|*[!0-9.]*) printf "%8.2f\n" "-1.0";;
-	    *) printf "%8.2f\n" "$dr";;
+	    *) printf "%8.1f\n" "$dr";;
 	esac
 	t1="$t2"; d1="$d2"; u1="$u2"
     else
