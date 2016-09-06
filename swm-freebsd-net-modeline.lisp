@@ -1,8 +1,8 @@
 ;; swm-freebsd-net-modeline.lisp
 ;;
-;; Put %n in your modeline format string to show information about network
-;; interfaces.
-;;
+;; %I Interface for the default route
+;; %U Upload rate in KB/s
+;; %D Download rate in KB/s
 
 (in-package #:swm-freebsd-net-modeline)
 
