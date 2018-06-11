@@ -2,8 +2,8 @@
 
 dri=$(/usr/bin/netstat -r4n | awk '/^default/ {print $4}')
 [ -n "$dri" ] && t1=$(now) && \
-    rate_info=$(/usr/bin/netstat -I "$dri" -q 1 -b 2>/dev/null | \
-                    awk 'NR%3==0 {print $8 " " $11}')
+    rate_info=$(/usr/bin/netstat -I "$dri" -4 -b 2>/dev/null | \
+                    awk 'NR%2==0 {print $8 " " $11}')
 set -- $rate_info
 [ -n "$1" ] && d1=$1; d2='0'; dr=-1.0
 [ -n "$2" ] && u1=$2; u2='0'; ur=-1.0
@@ -23,8 +23,8 @@ while kill -0 "$stump_pid" > /dev/null 2>&1; do
     dri=$(/usr/bin/netstat -r4n 2>/dev/null | awk '/^default/ {print $4}')
     if [ -n "$dri" ]; then
 	t2=$(now) && \
-	    rate_info=$(/usr/bin/netstat -I "$dri" -q 1 -b 2>/dev/null | \
-                            awk 'NR%3==0 {print $8 " " $11}')
+	    rate_info=$(/usr/bin/netstat -I "$dri" -4 -b 2>/dev/null | \
+                            awk 'NR%2==0 {print $8 " " $11}')
 	set -- $rate_info
 	[ -n "$1" ] && d2=$1;
 	[ -n "$2" ] && u2=$2;
